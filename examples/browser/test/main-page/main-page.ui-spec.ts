@@ -32,10 +32,6 @@ describe('theia main page', () => {
         mainPage.waitForStartup();
     });
 
-    it.only('fail me', () => {
-        expect(2).to.equal(5);
-    });
-
     it('should show the application shell', () => {
         expect(mainPage.applicationShellExists()).to.be.true;
     });

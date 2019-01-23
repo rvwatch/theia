@@ -16,7 +16,6 @@ install:
   - npm install yarn@1.7.0 -g
   - netsh advfirewall firewall add rule name="SeleniumIn" dir=in action=allow protocol=TCP localport=4444
   - netsh advfirewall firewall add rule name="SeleniumOut" dir=out action=allow protocol=TCP localport=4444
-  - cmd: appveyor-retry powershell Install-Product node $env:nodejs_version
 
 before_build:
   - node --version && npm --version && yarn --version && python --version
@@ -26,8 +25,8 @@ build_script:
 
 test_script:
   - appveyor-retry yarn test:theia
-  - appveyor-retry  yarn test:electron
-  - appveyor-retry  yarn test:browser
+  - appveyor-retry yarn test:electron
+  - appveyor-retry yarn test:browser
 
 notifications:
   - provider: Webhook
